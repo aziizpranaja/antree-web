@@ -149,7 +149,8 @@ class AddqueueController extends Controller
     {
         try{
             $edit = [
-                "status" => "cancel"
+                "status" => "cancel",
+                'updated_at' => Carbon::now()
             ];
 
             $register = Ticket::where('id', '=', $id)
@@ -173,6 +174,7 @@ class AddqueueController extends Controller
                             ->where('status', '=', 'cancel')
                             ->orWhere('status', '=', 'done')
                             ->where('tickets.user_id', '=', $user)
+                            ->orderBy('tickets.updated_at', 'desc')
                             ->get([
                                 'tickets.id',
                                 'mercant_id',
