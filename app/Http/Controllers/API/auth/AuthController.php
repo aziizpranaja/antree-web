@@ -16,6 +16,22 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         try{
+            $credentials = $request->all();
+
+            $validate = Validator::make($credentials, [
+                'name' => 'required',
+                'email' => 'required|email|unique:users,email',
+                'password' => 'required',
+            ]);
+
+            if ($validate->fails()) {
+                $response = [
+                    'errors' => $validate->errors()
+                ];
+
+                return ResponseFormatter::error($response, 'Bad Request', 400);
+            }
+
             $create = [
                 "name" => $request->input('name'),
                 "email" => $request->input('email'),
