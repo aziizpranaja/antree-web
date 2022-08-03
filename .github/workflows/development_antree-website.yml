@@ -56,5 +56,5 @@ jobs:
         with:
           app-name: 'antree-website'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A66B90B2F81B474EAE2C79712EB7116F }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EAED6A4A53944D44985D5BF2AA4C9FE2 }}
           package: .
