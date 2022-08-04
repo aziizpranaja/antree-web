@@ -698,7 +698,7 @@
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                     <span class="account-user-avatar">
-                                        <img src="assets/images/users/avatar-1.jpg" alt="user-image" class="rounded-circle">
+                                        <img src="assets/images/users/profile.png" alt="user-image" class="rounded-circle">
                                     </span>
                                     <span>
                                         <span class="account-user-name">{{ Auth::user()->name }}</span>
@@ -784,16 +784,16 @@
                             <div class="col-xl-9 col-lg-8">
                                 <div class="card text-center">
                                     <div class="card-body">
-                                        <img src="assets/images/users/avatar-1.jpg" class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">
+                                        <img src="assets/images/users/profile.png" class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">
 
-                                        <h4 class="mb-0 mt-2">Soeng Souy</h4>
-                                        <p class="text-muted font-14">Founder</p>
+                                        <h4 class="mb-0 mt-2">{{ $mercant->mercant_name }}</h4>
+                                        <p class="text-muted font-14">{{ $mercant->mercant_code }}</p>
 
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <div class="card card-body">
                                                     <h5 class="card-title">Total Ticket</h5>
-                                                    <h1>0</h1>
+                                                    <h1>{{ $allTicket }}</h1>
                                                 </div> <!-- end card-->
                                             </div> <!-- end col-->
                                         </div>
@@ -807,7 +807,7 @@
                                                     </div>
                                                     <div class="card-body">
                                                         <blockquote class="card-bodyquote">
-                                                            <h1>0</h1>
+                                                            <h1>{{ $allOngoing }}</h1>
                                                         </blockquote>
                                                     </div> <!-- end card-body-->
                                                 </div> <!-- end card-->
@@ -820,7 +820,7 @@
                                                     </div>
                                                     <div class="card-body">
                                                         <blockquote class="card-bodyquote">
-                                                            <h1>0</h1>
+                                                            <h1>{{ $allCancel }}</h1>
                                                         </blockquote>
                                                     </div> <!-- end card-body-->
                                                 </div> <!-- end card-->
@@ -833,7 +833,7 @@
                                                     </div>
                                                     <div class="card-body">
                                                         <blockquote class="card-bodyquote">
-                                                            <h1>0</h1>
+                                                            <h1>{{ $allPending }}</h1>
                                                         </blockquote>
                                                     </div> <!-- end card-body-->
                                                 </div> <!-- end card-->
