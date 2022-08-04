@@ -19,7 +19,7 @@ class CreateTicketsTable extends Migration
             $table->unsignedBigInteger('mercant_id');
             $table->integer('queue_number')->default(0);
             $table->string('status');
-            $table->dateTime('date');
+            $table->date('date');
             $table->timestamps();
         });
     }

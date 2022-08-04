@@ -19,9 +19,11 @@ class AddqueueController extends Controller
     {
         try {
             $arr = $request->input('mercant_id');
+            $date = Carbon::today()->format('Y-m-d');
             $ticket = Ticket::join('mercants', 'tickets.mercant_id', '=', 'mercants.id')
                     ->where('mercants.id', '=', $arr)
-                    ->orderBy('tickets.date', 'desc')
+                    ->where('tickets.date', '=', $date)
+                    ->orderBy('tickets.created_at', 'desc')
                     ->first();
 
             if(is_null($ticket)){
