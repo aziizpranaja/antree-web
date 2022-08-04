@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\CallQueueController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +30,7 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 //dashboard admin
 Route::group(['middleware' => ['auth', 'CekLevel:admin']], function(){
     Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/queue', [CallQueueController::class, 'index']);
+    Route::put('/queue/{id}', [CallQueueController::class, 'callQueue']);
+    Route::put('/queue/done/{id}', [CallQueueController::class, 'doneQueue']);
 });
