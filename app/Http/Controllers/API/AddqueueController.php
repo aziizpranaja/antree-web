@@ -19,9 +19,11 @@ class AddqueueController extends Controller
     {
         try {
             $arr = $request->input('mercant_id');
+            $date = Carbon::today()->format('Y-m-d');
             $ticket = Ticket::join('mercants', 'tickets.mercant_id', '=', 'mercants.id')
                     ->where('mercants.id', '=', $arr)
-                    ->orderBy('tickets.date', 'desc')
+                    ->where('tickets.date', '=', $date)
+                    ->orderBy('tickets.created_at', 'desc')
                     ->first();
 
             if(is_null($ticket)){
@@ -65,6 +67,7 @@ class AddqueueController extends Controller
             $queue = Ticket::join('mercants', 'tickets.mercant_id', '=', 'mercants.id')
                             ->where('status', '=', 'pending')
                             ->where('tickets.user_id', '=', $user)
+                            ->orderBy('tickets.created_at', 'desc')
                             ->get([
                                 'tickets.id',
                                 'mercant_id',
@@ -149,7 +152,8 @@ class AddqueueController extends Controller
     {
         try{
             $edit = [
-                "status" => "cancel"
+                "status" => "cancel",
+                'updated_at' => Carbon::now()
             ];
 
             $register = Ticket::where('id', '=', $id)
@@ -173,6 +177,7 @@ class AddqueueController extends Controller
                             ->where('status', '=', 'cancel')
                             ->orWhere('status', '=', 'done')
                             ->where('tickets.user_id', '=', $user)
+                            ->orderBy('tickets.updated_at', 'desc')
                             ->get([
                                 'tickets.id',
                                 'mercant_id',
