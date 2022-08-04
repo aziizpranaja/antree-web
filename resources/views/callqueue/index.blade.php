@@ -757,93 +757,107 @@
                                         <form class="d-flex">
                                         </form>
                                     </div>
-                                    <h4 class="page-title">Hello {{ Auth::user()->name }} !</h4>
+                                    <h4 class="page-title">{{ $mercant->mercant_name }}</h4>
                                 </div>
                             </div>
                         </div>
                         <!-- end page title -->
 
                         <div class="row">
-                            <div class="col-xl-3 col-lg-4">
-                                <div class="card tilebox-one">
+                            <div class="col-xxl-3 col-lg-6">
+                                <div class="card widget-flat bg-primary text-white">
                                     <div class="card-body">
-                                        <a href="{{ url('queue') }}">
-                                            <div class="card bg-success text-white">
-                                                <div class="card-body">
-                                                    <div class="text-center">
-                                                        <h4> Call Queue</h4>
-                                                    </div>
-                                                </div> <!-- end card-body-->
-                                            </div>
-                                        </a>
-                                    </div> <!-- end card-body-->
+                                        <div class="float-end">
+                                            <i class="mdi mdi-account-multiple widget-icon bg-white text-primary"></i>
+                                        </div>
+                                        <h6 class="text-uppercase mt-0" title="Customers">Approach</h6>
+                                        <h3 class="mt-3 mb-3">{{ $allPending }}</h3>
+                                    </div>
                                 </div>
-                                <!--end card-->
-                            </div> <!-- end col -->
+                            </div> <!-- end col-->
 
-                            <div class="col-xl-9 col-lg-8">
-                                <div class="card text-center">
+                            <div class="col-xxl-3 col-lg-6">
+                                <div class="card widget-flat bg-success text-white">
                                     <div class="card-body">
-                                        <img src="assets/images/users/profile.png" class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">
-
-                                        <h4 class="mb-0 mt-2">{{ $mercant->mercant_name }}</h4>
-                                        <p class="text-muted font-14">{{ $mercant->mercant_code }}</p>
-
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <div class="card card-body">
-                                                    <h5 class="card-title">Total Ticket</h5>
-                                                    <h1>{{ $allTicket }}</h1>
-                                                </div> <!-- end card-->
-                                            </div> <!-- end col-->
+                                        <div class="float-end">
+                                            <i class="mdi mdi-account-multiple widget-icon bg-white text-success"></i>
                                         </div>
-                                        <!-- end row -->
+                                        <h6 class="text-uppercase mt-0" title="Customers">Done</h6>
+                                        <h3 class="mt-3 mb-3">{{ $allDone }}</h3>
+                                    </div>
+                                </div>
+                            </div> <!-- end col-->
+                        </div>
 
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        Ongoing
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <blockquote class="card-bodyquote">
-                                                            <h1>{{ $allOngoing }}</h1>
-                                                        </blockquote>
-                                                    </div> <!-- end card-body-->
-                                                </div> <!-- end card-->
-                                            </div> <!-- end col-->
+                            <div class="col-xl-12 col-lg-8">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card text-center">
+                                            <div class="card-header">
+                                                Now Serve
+                                            </div>
+                                            <div class="card-body">
+                                                <blockquote class="card-bodyquote">
+                                                    @if($ongoing == null)
+                                                        <h1>0</h1>
+                                                    @else
+                                                        <h1>{{ $ongoing->queue_number }}</h1>
+                                                    @endif
+                                                </blockquote>
+                                            </div> <!-- end card-body-->
+                                        </div> <!-- end card-->
+                                    </div> <!-- end col-->
+                                </div>
+                                <!-- end row -->
+                                <div class="card text-center">
+                                    <div class="row">
+                                        <div class="card-body">
+                                            @if($queue == null)
+                                                <button disabled class="btn btn-primary mb-2"  type="submit">
+                                                    Call Queue
+                                                </button>
+                                            @else
+                                                <form action="{{ url('queue/'.$queue->id) }}" method="POST">
+                                                    {{csrf_field()}}
+                                                    @method('PUT')
+                                                    @if($ongoing == null)
+                                                        <button class="btn btn-primary"  type="submit">
+                                                            Call Queue
+                                                        </button>
 
-                                            <div class="col-md-4">
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        Cancel
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <blockquote class="card-bodyquote">
-                                                            <h1>{{ $allCancel }}</h1>
-                                                        </blockquote>
-                                                    </div> <!-- end card-body-->
-                                                </div> <!-- end card-->
-                                            </div> <!-- end col-->
-
-                                            <div class="col-md-4">
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        Pending
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <blockquote class="card-bodyquote">
-                                                            <h1>{{ $allPending }}</h1>
-                                                        </blockquote>
-                                                    </div> <!-- end card-body-->
-                                                </div> <!-- end card-->
-                                            </div> <!-- end col-->
-                                        </div>
-                                        <!-- end row -->
-                                    </div> <!-- end card-body -->
+                                                    @else
+                                                        <button disabled class="btn btn-primary"  type="submit">
+                                                            Call Queue
+                                                        </button>
+                                                    @endif
+                                                </form><br>
+                                            @endif
+                                        </div> <!-- end card-body -->
+                                        <div class="card-body">
+                                            @if($ongoing == null)
+                                                <button disabled class="btn btn-success mb-2"  type="submit">
+                                                    Done Queue
+                                                </button>
+                                            @else
+                                                <form action="{{ url('queue/done/'.$ongoing->id) }}" method="POST">
+                                                    {{csrf_field()}}
+                                                    @method('PUT')
+                                                    @if($ongoing == null)
+                                                        <button disabled class="btn btn-success"  type="submit">
+                                                            Done Queue
+                                                        </button>
+                                                    @else
+                                                        <button class="btn btn-success"  type="submit">
+                                                            Done Queue
+                                                        </button>
+                                                    @endif
+                                                </form><br>
+                                            @endif
+                                        </div> <!-- end card-body -->
+                                    </div>
                                 </div> <!-- end card -->
                             </div>
-                        </div>
+
                     </div>
                     <!-- container -->
 
