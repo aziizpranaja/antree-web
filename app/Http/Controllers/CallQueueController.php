@@ -12,9 +12,8 @@ class CallQueueController extends Controller
     public function index()
     {
         $user = Auth::user()->id;
-        $mercant = Ticket::join('mercants', 'tickets.mercant_id', '=', 'mercants.id')
-                        ->where('mercants.user_id', '=', $user)
-                        ->first(['mercant_name', 'tickets.id', 'status']);
+        $mercant = Mercant::where('user_id', '=', $user)
+                        ->first(['mercant_name', 'mercant_code']);
 
         $pending = Ticket::join('mercants', 'tickets.mercant_id', '=', 'mercants.id')
         ->where('mercants.user_id', '=', $user)
