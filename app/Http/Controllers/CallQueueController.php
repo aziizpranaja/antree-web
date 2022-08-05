@@ -16,6 +16,8 @@ class CallQueueController extends Controller
         $mercant = Mercant::where('user_id', '=', $user)
                         ->first(['mercant_name', 'mercant_code']);
 
+        dd($mercant);
+
         $pending = Ticket::join('mercants', 'tickets.mercant_id', '=', 'mercants.id')
         ->where('mercants.user_id', '=', $user)
         ->where('status', '=', 'pending')
