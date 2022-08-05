@@ -786,8 +786,8 @@
                                     <div class="card-body">
                                         <img src="assets/images/users/profile.png" class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">
 
-                                        <h4 class="mb-0 mt-2">{{ $mercant->mercant_name }}</h4>
-                                        <p class="text-muted font-14">{{ $mercant->mercant_code }}</p>
+                                        {{-- <h4 class="mb-0 mt-2">{{ $mercant->mercant_name }}</h4> --}}
+                                        {{-- <p class="text-muted font-14">{{ $mercant->mercant_code }}</p> --}}
 
                                         <div class="row">
                                             <div class="col-sm-12">
