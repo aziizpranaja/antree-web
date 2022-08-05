@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Ticket;
+use App\Models\Mercant;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
@@ -11,8 +12,7 @@ class DashboardController extends Controller
     public function index()
     {
         $user = Auth::user()->id;
-        $mercant = Ticket::join('mercants', 'tickets.mercant_id', '=', 'mercants.id')
-                        ->where('mercants.user_id', '=', $user)
+        $mercant = Mercant::where('user_id', '=', $user)
                         ->first(['mercant_name', 'mercant_code']);
 
         $ticket = Ticket::join('mercants', 'tickets.mercant_id', '=', 'mercants.id')
