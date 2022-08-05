@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Ticket;
+use App\Models\Mercant;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
