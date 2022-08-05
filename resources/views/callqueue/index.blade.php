@@ -764,7 +764,7 @@
                         <!-- end page title -->
 
                         <div class="row">
-                            <div class="col-xxl-3 col-lg-6">
+                            <div class="col-xxl-6 col-lg-6">
                                 <div class="card widget-flat bg-primary text-white">
                                     <div class="card-body">
                                         <div class="float-end">
@@ -776,7 +776,7 @@
                                 </div>
                             </div> <!-- end col-->
 
-                            <div class="col-xxl-3 col-lg-6">
+                            <div class="col-xxl-6 col-lg-6">
                                 <div class="card widget-flat bg-success text-white">
                                     <div class="card-body">
                                         <div class="float-end">

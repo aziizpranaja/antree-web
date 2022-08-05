@@ -207,7 +207,7 @@ class AddqueueController extends Controller
             }
 
             return ResponseFormatter::success([
-                'ticket' => $queue
+                $queue
             ], 'Get History Ticket Success');
         }
         catch (Exception $e) {
