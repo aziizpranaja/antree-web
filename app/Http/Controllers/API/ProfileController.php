@@ -17,7 +17,7 @@ class ProfileController extends Controller
         try {
             $user = Auth::user();
             $response = [
-                'user' => $user,
+                $user,
             ];
 
             return ResponseFormatter::success($response, 'Get User');
