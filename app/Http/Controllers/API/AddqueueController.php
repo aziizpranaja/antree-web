@@ -176,7 +176,7 @@ class AddqueueController extends Controller
             $queue = Ticket::join('mercants', 'tickets.mercant_id', '=', 'mercants.id')
                             ->where('tickets.user_id', '=', $user)
                             ->where('status', '=', 'cancel')
-                            ->orWhere('status', '=', 'done')
+                            // ->orWhere('status', '=', 'done')
                             ->orderBy('tickets.updated_at', 'desc')
                             ->get([
                                 'tickets.id',
