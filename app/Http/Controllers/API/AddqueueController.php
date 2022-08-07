@@ -147,7 +147,7 @@ class AddqueueController extends Controller
             $response = [
                 'nama_mercant' => $queue->mercant_name,
                 'queue_number' => $queue->queue_number,
-                'now_serve' => $ongoing,
+                'now_serve' => $ongoing->queue_number,
             ];
 
             return ResponseFormatter::success($response, 'Get Ticket');
