@@ -97,7 +97,7 @@ class AddqueueController extends Controller
             }
 
             return ResponseFormatter::success([
-                'ticket' => $queue
+                $queue
             ], 'Get Ticket Success');
         }
         catch (Exception $e) {
@@ -112,14 +112,20 @@ class AddqueueController extends Controller
     {
         try{
             $user = Auth::user()->id;
+            $date = Carbon::today()->format('Y-m-d');
             $queue = Ticket::join('mercants', 'tickets.mercant_id', '=', 'mercants.id')
                             ->where('tickets.id', '=', $id)
                             ->where('tickets.user_id', '=', $user)
+                            ->where('tickets.date', '=', $date)
                             ->first([
                                 'mercant_name',
                                 'queue_number',
                                 'mercant_id',
                             ]);
+
+            if(is_null($queue)){
+                return ResponseFormatter::error("Data not found!", 404);
+            }
 
             $ongoing = Ticket::join('mercants', 'tickets.mercant_id', '=', 'mercants.id')
             ->where('tickets.mercant_id', '=', $queue->mercant_id)
@@ -128,8 +134,14 @@ class AddqueueController extends Controller
                 'queue_number',
             ]);
 
-            if(is_null($queue)){
-                return ResponseFormatter::error("Data not found!", 404);
+            if(is_null($ongoing)){
+                $response = [
+                    'nama_mercant' => $queue->mercant_name,
+                    'queue_number' => $queue->queue_number,
+                    'now_serve' => $ongoing,
+                ];
+
+                return ResponseFormatter::success($response, 'Get Ticket');
             }
 
             $response = [
@@ -174,9 +186,9 @@ class AddqueueController extends Controller
         try{
             $user = Auth::user()->id;
             $queue = Ticket::join('mercants', 'tickets.mercant_id', '=', 'mercants.id')
-                            ->where('status', '=', 'cancel')
-                            ->orWhere('status', '=', 'done')
                             ->where('tickets.user_id', '=', $user)
+                            ->where('status', '!=', 'ongoing')
+                            ->where('status', '!=', 'pending')
                             ->orderBy('tickets.updated_at', 'desc')
                             ->get([
                                 'tickets.id',
