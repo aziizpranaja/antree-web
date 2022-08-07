@@ -128,7 +128,7 @@ class AddqueueController extends Controller
 
             $ongoing = Ticket::join('mercants', 'tickets.mercant_id', '=', 'mercants.id')
             ->where('tickets.mercant_id', '=', $queue->mercant_id)
-            ->where('tickets.date', '=', $date)
+            // ->where('tickets.date', '=', $date)
             ->where('status', '=', 'ongoing')
             ->first([
                 'queue_number',
@@ -147,7 +147,7 @@ class AddqueueController extends Controller
             $response = [
                 'nama_mercant' => $queue->mercant_name,
                 'queue_number' => $queue->queue_number,
-                'now_serve' => $ongoing->queue_number,
+                'now_serve' => $ongoing,
             ];
 
             return ResponseFormatter::success($response, 'Get Ticket');
