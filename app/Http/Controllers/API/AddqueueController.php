@@ -112,9 +112,11 @@ class AddqueueController extends Controller
     {
         try{
             $user = Auth::user()->id;
+            $date = Carbon::today()->format('Y-m-d');
             $queue = Ticket::join('mercants', 'tickets.mercant_id', '=', 'mercants.id')
                             ->where('tickets.id', '=', $id)
                             ->where('tickets.user_id', '=', $user)
+                            ->where('tickets.date', '=', $date)
                             ->first([
                                 'mercant_name',
                                 'queue_number',
