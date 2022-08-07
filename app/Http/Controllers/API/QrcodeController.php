@@ -25,6 +25,7 @@ class QrcodeController extends Controller
                 'user_id' => $mercant->user_id,
                 'mercant_name' => $mercant->mercant_name,
                 'mercant_code' => $mercant->mercant_code,
+                'mercant_email' => $mercant->mercant_email,
                 'address' => $mercant->address,
                 'phone' => $mercant->phone,
                 'attachment_path' => ($mercant->image !== null) ? env('APP_URL') . "/storage/$mercant->image" : $mercant->attachment,
