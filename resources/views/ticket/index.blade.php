@@ -285,7 +285,16 @@
                             name: 'date'
                         },
                         {
-                            data: 'status',
+                            data: (data) => {
+                                switch (data.status) {
+                                    case 'done':
+                                        return '<span class="badge bg-success rounded-pill">Done</span>';
+                                        break;
+                                    case 'cancel':
+                                        return '<span class="badge bg-secondary text-light rounded-pill">Cancelled</span>';
+                                        break;
+                                }
+                            },
                             name: 'status'
                         },
 
