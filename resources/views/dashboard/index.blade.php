@@ -59,6 +59,13 @@
                         </li>
 
                         <li class="side-nav-item">
+                            <a href="{{ url('nowserve') }}" class="side-nav-link">
+                                <i class="uil-play"></i>
+                                <span> Now Serve </span>
+                            </a>
+                        </li>
+
+                        <li class="side-nav-item">
                             <a href="{{ url('ticket') }}" class="side-nav-link">
                                 <i class="uil-ticket"></i>
                                 <span> Ticket </span>

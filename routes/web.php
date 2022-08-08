@@ -7,6 +7,7 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\CallQueueController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\NowserveController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,4 +39,5 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function(){
     Route::get('/ticket', [TicketController::class, 'index']);
     Route::get('/ticket/get', [TicketController::class, 'getTicket']);
     Route::get('/profile', [ProfileController::class, 'index']);
+    Route::get('/nowserve', [NowserveController::class, 'index']);
 });
