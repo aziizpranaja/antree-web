@@ -19,7 +19,7 @@ class AddqueueController extends Controller
     {
         try {
             $arr = $request->input('mercant_id');
-            $date = Carbon::today()->format('Y-m-d');
+            $date = Carbon::today()->format('Y-m-d H:i:s');
             $ticket = Ticket::join('mercants', 'tickets.mercant_id', '=', 'mercants.id')
                     ->where('mercants.id', '=', $arr)
                     ->where('tickets.date', '=', $date)
