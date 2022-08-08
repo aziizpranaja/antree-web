@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-    <html lang="en">
-
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <title>Antree | Virtual Queue</title>
@@ -8,11 +7,7 @@
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description">
         <meta content="Coderthemes" name="author">
         <!-- App favicon -->
-        {{-- <link rel="shortcut icon" href="assets/images/favicon.ico"> --}}
-
-        <!-- third party css -->
-        <link href="assets/css/vendor/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css">
-        <!-- third party css end -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
 
         <!-- App css -->
         <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css">
@@ -37,6 +32,16 @@
                     </span>
                 </a>
 
+                <!-- LOGO -->
+                <a href="index.html" class="logo text-center logo-dark">
+                    <span class="logo-lg">
+                        <img src="assets/images/logo-dark.png" alt="" height="16">
+                    </span>
+                    <span class="logo-sm">
+                        <img src="assets/images/logo_sm_dark.png" alt="" height="16">
+                    </span>
+                </a>
+
                 <div class="h-100" id="leftside-menu-container" data-simplebar="">
 
                     <!--- Sidemenu -->
@@ -47,7 +52,7 @@
                         <li class="side-nav-item">
                             <a href="{{ url('dashboard') }}" class="side-nav-link">
                                 <i class="uil-home-alt"></i>
-                                <span class=" active"> Dashboards </span>
+                                <span> Dashboard </span>
                             </a>
                         </li>
 
@@ -66,6 +71,7 @@
                         </li>
                     </ul>
                     <!-- End Sidebar -->
+
 
                     <div class="clearfix"></div>
 
@@ -116,108 +122,66 @@
                     </div>
                     <!-- end Topbar -->
 
+
                     <!-- Start Content-->
                     <div class="container-fluid">
+
                         <!-- start page title -->
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box">
-                                    <div class="page-title-right">
-                                        <form class="d-flex">
-                                        </form>
-                                    </div>
-                                    <h4 class="page-title">Hello {{ Auth::user()->name }} !</h4>
+                                    <h4 class="page-title">Profile Mercant</h4>
                                 </div>
                             </div>
                         </div>
                         <!-- end page title -->
 
                         <div class="row">
-                            <div class="col-xl-3 col-lg-4">
-                                <div class="card tilebox-one">
-                                    <div class="card-body">
-                                        <a href="{{ url('queue') }}">
-                                            <div class="card bg-success text-white">
-                                                <div class="card-body">
-                                                    <div class="text-center">
-                                                        <h4> Call Queue</h4>
-                                                    </div>
-                                                </div> <!-- end card-body-->
-                                            </div>
-                                        </a>
-                                    </div> <!-- end card-body-->
-                                </div>
-                                <!--end card-->
-                            </div> <!-- end col -->
-
-                            <div class="col-xl-9 col-lg-8">
-                                <div class="card text-center">
-                                    <div class="card-body">
-                                        <img src="assets/images/users/profile.png" class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">
-
-                                        <h4 class="mb-0 mt-2">{{ $mercant->mercant_name }}</h4>
-                                        <p class="text-muted font-14">{{ $mercant->mercant_code }}</p>
-
+                            <div class="col-sm-12">
+                                <!-- Profile -->
+                                <div class="card bg-primary">
+                                    <div class="card-body profile-user-box">
                                         <div class="row">
-                                            <div class="col-sm-12">
-                                                <div class="card card-body">
-                                                    <h5 class="card-title">Total Ticket</h5>
-                                                    <h1>{{ $allTicket }}</h1>
-                                                </div> <!-- end card-->
-                                            </div> <!-- end col-->
-                                        </div>
-                                        <!-- end row -->
-
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        Ongoing
+                                            <div class="col-sm-8">
+                                                <div class="row align-items-center">
+                                                    <div class="col-auto">
+                                                        <div class="avatar-lg">
+                                                            <img src="assets/images/users/profile.png" alt="" class="rounded-circle img-thumbnail">
+                                                        </div>
                                                     </div>
-                                                    <div class="card-body">
-                                                        <blockquote class="card-bodyquote">
-                                                            <h1>{{ $allOngoing }}</h1>
-                                                        </blockquote>
-                                                    </div> <!-- end card-body-->
-                                                </div> <!-- end card-->
-                                            </div> <!-- end col-->
+                                                    <div class="col">
+                                                        <div>
+                                                            <h4 class="mt-1 mb-1 text-white">{{ $mercant->mercant_name }}</h4>
+                                                            <p class="font-13 text-white-50">{{ $mercant->mercant_code }}</p>
 
-                                            <div class="col-md-4">
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        Cancel
+                                                            <ul class="mb-0 list-inline text-light">
+                                                                <li class="list-inline-item me-3">
+                                                                    <h5 class="mb-1">Address</h5>
+                                                                    <p class="mb-0 font-13 text-white-50">{{ $mercant->address }}</p>
+                                                                </li>
+                                                                <li class="list-inline-item">
+                                                                    <h5 class="mb-1">Phone</h5>
+                                                                    <p class="mb-0 font-13 text-white-50">{{ $mercant->phone }}</p>
+                                                                </li>
+                                                                <li class="list-inline-item">
+                                                                    <h5 class="mb-1">Email</h5>
+                                                                    <p class="mb-0 font-13 text-white-50">{{ $mercant->mercant_email }}</p>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
                                                     </div>
-                                                    <div class="card-body">
-                                                        <blockquote class="card-bodyquote">
-                                                            <h1>{{ $allCancel }}</h1>
-                                                        </blockquote>
-                                                    </div> <!-- end card-body-->
-                                                </div> <!-- end card-->
+                                                </div>
                                             </div> <!-- end col-->
+                                        </div> <!-- end row -->
 
-                                            <div class="col-md-4">
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        Pending
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <blockquote class="card-bodyquote">
-                                                            <h1>{{ $allPending }}</h1>
-                                                        </blockquote>
-                                                    </div> <!-- end card-body-->
-                                                </div> <!-- end card-->
-                                            </div> <!-- end col-->
-                                        </div>
-                                        <!-- end row -->
-                                    </div> <!-- end card-body -->
-                                </div> <!-- end card -->
-                            </div>
+                                    </div> <!-- end card-body/ profile-user-box-->
+                                </div><!--end profile/ card -->
+                            </div> <!-- end col-->
                         </div>
-                    </div>
-                    <!-- container -->
+                        <!-- end row -->
+                    </div> <!-- container -->
 
-                </div>
-                <!-- content -->
+                </div> <!-- content -->
 
                 <!-- Footer Start -->
                 <footer class="footer">
@@ -236,23 +200,15 @@
             <!-- ============================================================== -->
             <!-- End Page content -->
             <!-- ============================================================== -->
+
+
         </div>
         <!-- END wrapper -->
+
 
         <!-- bundle -->
         <script src="assets/js/vendor.min.js"></script>
         <script src="assets/js/app.min.js"></script>
 
-        <!-- third party js -->
-        <!-- <script src="assets/js/vendor/Chart.bundle.min.js"></script> -->
-        <script src="assets/js/vendor/apexcharts.min.js"></script>
-        <script src="assets/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
-        <script src="assets/js/vendor/jquery-jvectormap-world-mill-en.js"></script>
-        <!-- third party js ends -->
-
-        <!-- demo app -->
-        <script src="assets/js/pages/demo.dashboard-analytics.js"></script>
-        <!-- end demo js-->
     </body>
-
 </html>
