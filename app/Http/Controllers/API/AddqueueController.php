@@ -45,7 +45,7 @@ class AddqueueController extends Controller
                 "mercant_id" => $request->input('mercant_id'),
                 "queue_number" => $number,
                 "status" => "pending",
-                "date" => Carbon::now()->format('Y-m-d'),
+                "date" => Carbon::now(),
             ];
 
             $queue = Ticket::create($create);
