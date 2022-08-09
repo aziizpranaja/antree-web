@@ -73,7 +73,7 @@
                             <p class="mb-4 font-16 text-white-50">
                                 everywhere, every time, make it easier</p>
 
-                            <a href="{{ url('loginpage') }}" target="_blank" class="btn btn-success">Login Mercant <i class="mdi mdi-arrow-right ms-1"></i></a>
+                            <a href="{{ url('loginpage') }}" class="btn btn-success">Login Mercant <i class="mdi mdi-arrow-right ms-1"></i></a>
                         </div>
                     </div>
                     <div class="col-md-5 offset-md-2">
