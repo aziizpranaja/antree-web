@@ -153,7 +153,7 @@
                                                     <div class="col-lg-6">
                                                         <p class="mb-1 fw-bold text-muted">Select Status</p>
                                                         <select class="form-control select2" data-toggle="select2" id="status" name="status" onchange="selectFunction()">
-                                                            <option>Select</option>
+                                                            <option value="">Select</option>
                                                             <option value="done">Done</option>
                                                             <option value="cancel">Cancel</option>
                                                         </select>
