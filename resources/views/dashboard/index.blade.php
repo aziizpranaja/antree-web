@@ -68,7 +68,7 @@
                         <li class="side-nav-item">
                             <a href="{{ url('ticket') }}" class="side-nav-link">
                                 <i class="uil-ticket"></i>
-                                <span> Ticket </span>
+                                <span> History </span>
                             </a>
                         </li>
                     </ul>
@@ -141,7 +141,7 @@
 
                         <div class="row">
                             <div class="col-xl-3 col-lg-4">
-                                <div class="card tilebox-one">
+                                <div class="card tilebox-one text-center">
                                     <div class="card-body">
                                         <a href="{{ url('queue') }}">
                                             <div class="card bg-success text-white">
@@ -152,6 +152,7 @@
                                                 </div> <!-- end card-body-->
                                             </div>
                                         </a>
+                                        <button class="btn btn-primary" value="Refresh" onClick="refresh(this)">Refresh</button>
                                     </div> <!-- end card-body-->
                                 </div>
                                 <!--end card-->
@@ -169,7 +170,7 @@
                                             <div class="col-sm-12">
                                                 <div class="card card-body">
                                                     <h5 class="card-title">Total Ticket</h5>
-                                                    <h1>{{ $allTicket }}</h1>
+                                                    <h1 id="total_ticket">{{ $allTicket }}</h1>
                                                 </div> <!-- end card-->
                                             </div> <!-- end col-->
                                         </div>
@@ -183,7 +184,7 @@
                                                     </div>
                                                     <div class="card-body">
                                                         <blockquote class="card-bodyquote">
-                                                            <h1>{{ $allOngoing }}</h1>
+                                                            <h1 id="ongoing">{{ $allOngoing }}</h1>
                                                         </blockquote>
                                                     </div> <!-- end card-body-->
                                                 </div> <!-- end card-->
@@ -196,7 +197,7 @@
                                                     </div>
                                                     <div class="card-body">
                                                         <blockquote class="card-bodyquote">
-                                                            <h1>{{ $allCancel }}</h1>
+                                                            <h1 id="cancel">{{ $allCancel }}</h1>
                                                         </blockquote>
                                                     </div> <!-- end card-body-->
                                                 </div> <!-- end card-->
@@ -209,7 +210,7 @@
                                                     </div>
                                                     <div class="card-body">
                                                         <blockquote class="card-bodyquote">
-                                                            <h1>{{ $allPending }}</h1>
+                                                            <h1 id="pending">{{ $allPending }}</h1>
                                                         </blockquote>
                                                     </div> <!-- end card-body-->
                                                 </div> <!-- end card-->
@@ -260,6 +261,26 @@
         <!-- demo app -->
         <script src="assets/js/pages/demo.dashboard-analytics.js"></script>
         <!-- end demo js-->
+
+        <script>
+            function refresh(){
+                $("#total_ticket").load(window.location
+                    .href +
+                    " #total_ticket");
+
+                $("#ongoing").load(window.location
+                .href +
+                " #ongoing");
+                }
+
+                $("#pending").load(window.location
+                    .href +
+                    " #pending");
+
+                $("#cancel").load(window.location
+                .href +
+                " #cancel");
+        </script>
     </body>
 
 </html>

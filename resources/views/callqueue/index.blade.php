@@ -68,7 +68,7 @@
                         <li class="side-nav-item">
                             <a href="{{ url('ticket') }}" class="side-nav-link">
                                 <i class="uil-ticket"></i>
-                                <span> Ticket </span>
+                                <span> History </span>
                             </a>
                         </li>
                     </ul>

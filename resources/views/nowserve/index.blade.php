@@ -54,7 +54,7 @@
                         <li class="side-nav-item">
                             <a href="{{ url('profile') }}" class="side-nav-link">
                                 <i class="uil-user"></i>
-                                <span> Profile </span>
+                                <span> History </span>
                             </a>
                         </li>
 
