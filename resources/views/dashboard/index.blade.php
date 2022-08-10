@@ -271,7 +271,6 @@
                 $("#ongoing").load(window.location
                 .href +
                 " #ongoing");
-                }
 
                 $("#pending").load(window.location
                     .href +
@@ -280,6 +279,7 @@
                 $("#cancel").load(window.location
                 .href +
                 " #cancel");
+                }
         </script>
     </body>
 
