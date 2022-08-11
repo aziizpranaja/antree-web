@@ -130,8 +130,7 @@
                             <div class="col-12">
                                 <div class="page-title-box">
                                     <div class="page-title-right">
-                                        <form class="d-flex">
-                                        </form>
+                                        <button class="btn btn-primary" value="Refresh" onClick="refresh(this)">Refresh</button>
                                     </div>
                                     <h4 class="page-title">{{ $mercant->mercant_name }}</h4>
                                 </div>
@@ -145,9 +144,9 @@
                                     <div class="card-body">
                                         <h3 class="card-title text-primary">Now Serve</h3>
                                         @if($ongoing == null)
-                                            <h4 class="card-text">0</h4>
+                                            <h4 id="now_serve" class="card-text">0</h4>
                                         @else
-                                            <h4 class="card-text">{{ $ongoing->queue_number }}</h4>
+                                            <h4 id="now_serve" class="card-text">{{ $ongoing->queue_number }}</h4>
                                         @endif
                                     </div> <!-- end card-body-->
                                 </div> <!-- end card-->
@@ -194,6 +193,14 @@
         <!-- demo app -->
         <script src="assets/js/pages/demo.dashboard-analytics.js"></script>
         <!-- end demo js-->
+
+        <script>
+            function refresh(){
+                $("#now_serve").load(window.location
+                    .href +
+                    " #now_serve");
+                }
+        </script>
     </body>
 
 </html>
