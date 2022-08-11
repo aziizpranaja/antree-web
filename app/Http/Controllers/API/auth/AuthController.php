@@ -58,7 +58,9 @@ class AuthController extends Controller
     {
         try {
             $credentials = $request->only('email', 'password',);
-            $deletedAccount = User::where('email', '=', $credentials['email'])->first();
+            $deletedAccount = User::where('email', '=', $credentials['email'])
+                            ->where('level', '=', 'user')
+                            ->first();
 
             $validate = Validator::make($credentials, [
                 'email' => 'required|email',
