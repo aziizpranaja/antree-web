@@ -58,9 +58,6 @@ class AuthController extends Controller
     {
         try {
             $credentials = $request->only('email', 'password',);
-            $deletedAccount = User::where('email', '=', $credentials['email'])
-                            ->where('level', '=', 'user')
-                            ->first();
 
             $validate = Validator::make($credentials, [
                 'email' => 'required|email',
@@ -75,7 +72,7 @@ class AuthController extends Controller
                 return ResponseFormatter::error($response, 'Bad Request', 400);
             }
 
-            if (!Auth::attempt($credentials)) {
+            if (!Auth::attempt(['email' => $request->email, 'password' => $request->password, 'level'=>'user'])) {
                 $messages = 'This account doesn\'t exist or wrong password.';
 
                 throw new Exception($messages, 401);
