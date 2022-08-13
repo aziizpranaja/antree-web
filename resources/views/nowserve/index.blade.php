@@ -30,7 +30,7 @@
                 <!-- LOGO -->
                 <a href="{{ url('dashboard') }}" class="logo text-center logo-light">
                     <span class="logo-lg">
-                        <img src="assets/images/Logo.png" alt="" height="55">
+                        <img src="assets/images/logo.png" alt="" height="55">
                     </span>
                     <span class="logo-sm">
                         <img src="assets/images/favicon.png" alt="" height="55">

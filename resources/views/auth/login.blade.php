@@ -26,7 +26,7 @@
                             <!-- Logo -->
                             <div class="card-header pt-4 pb-4 text-center bg-primary">
                                 <a href="{{url('/')}}">
-                                    <span><img src="assets/images/Logo.png" alt="" height="55"></span>
+                                    <span><img src="assets/images/logo.png" alt="" height="55"></span>
                                 </a>
                             </div>
 
