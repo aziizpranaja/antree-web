@@ -24,7 +24,7 @@ use App\Http\Controllers\NowserveController;
 Route::get('/', [LandingController::class, 'index']);
 
 //Login dan Register
-Route::get('/loginpage', [LoginController::class, 'index']);
+Route::get('/loginpage', [LoginController::class, 'index'])->name('loginpage');
 Route::get('/registerpage', [LoginController::class, 'registerpage']);
 Route::post('/regiter', [LoginController::class, 'register'])->name('register');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
