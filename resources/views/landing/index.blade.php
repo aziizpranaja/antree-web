@@ -25,7 +25,7 @@
 
                 <!-- logo -->
                 <a href="{{ url('landing') }}" class="navbar-brand me-lg-5">
-                    <img src="{{asset('assets/image/Logo.png')}}" alt="" class="logo-dark" height="55">
+                    <img src="assets/images/Logo.png" alt="" class="logo-dark" height="55">
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
