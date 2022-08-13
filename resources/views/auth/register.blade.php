@@ -7,7 +7,7 @@
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
         <!-- App favicon -->
-        {{-- <link rel="shortcut icon" href="assets/images/favicon.ico"> --}}
+        <link rel="shortcut icon" href="assets/images/favicon.png">
 
         <!-- App css -->
         <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
@@ -26,7 +26,7 @@
                             <!-- Logo-->
                             <div class="card-header pt-4 pb-4 text-center bg-primary">
                                 <a href="{{url('/')}}">
-                                    <span><h2 style="color: white">Antree</h2></span>
+                                    <span><img src="assets/images/Logo.png" alt="" height="55"></span>
                                 </a>
                             </div>
 

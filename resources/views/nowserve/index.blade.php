@@ -8,7 +8,7 @@
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description">
         <meta content="Coderthemes" name="author">
         <!-- App favicon -->
-        {{-- <link rel="shortcut icon" href="assets/images/favicon.ico"> --}}
+        <link rel="shortcut icon" href="assets/images/favicon.png">
 
         <!-- third party css -->
         <link href="assets/css/vendor/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css">
@@ -30,10 +30,10 @@
                 <!-- LOGO -->
                 <a href="{{ url('dashboard') }}" class="logo text-center logo-light">
                     <span class="logo-lg">
-                        <h1>Antree</h1>
+                        <img src="assets/images/Logo.png" alt="" height="55">
                     </span>
                     <span class="logo-sm">
-                        <h1>A</h1>
+                        <img src="assets/images/favicon.png" alt="" height="55">
                     </span>
                 </a>
 
