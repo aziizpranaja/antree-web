@@ -145,7 +145,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
-                        <img src="assets/images/Logo.png" alt="" class="logo-dark" height="55">
+                        <img src="assets/images/logo.png" alt="" class="logo-dark" height="55">
                         <p class="text-muted mt-4">everywhere, every time, make it easier.</p>
 
                         <ul class="social-list list-inline mt-3">
