@@ -26,6 +26,9 @@ class AddqueueController extends Controller
                     ->orderBy('tickets.created_at', 'desc')
                     ->first();
 
+            $mercant = Mercant::where('id', '=', $arr)
+            ->first();
+
             if(is_null($ticket)){
                 $create = [
                     "user_id" => $request->input('user_id'),
@@ -39,6 +42,11 @@ class AddqueueController extends Controller
             }
 
             $number = $ticket->queue_number + 1;
+
+            if($number > $mercant->max_ticket)
+            {
+                return ResponseFormatter::error("Out of Quota!");
+            }
 
             $create = [
                 "user_id" => $request->input('user_id'),
