@@ -130,8 +130,7 @@
                             <div class="col-12">
                                 <div class="page-title-box">
                                     <div class="page-title-right">
-                                        <form class="d-flex">
-                                        </form>
+                                        <button class="btn btn-primary" value="Refresh" onClick="refresh(this)">Refresh</button>
                                     </div>
                                     <h4 class="page-title">Hello {{ Auth::user()->name }} !</h4>
                                 </div>
@@ -152,7 +151,6 @@
                                                 </div> <!-- end card-body-->
                                             </div>
                                         </a>
-                                        <button class="btn btn-primary" value="Refresh" onClick="refresh(this)">Refresh</button>
                                     </div> <!-- end card-body-->
                                 </div>
                                 <!--end card-->
