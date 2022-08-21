@@ -26,7 +26,7 @@
                             <!-- Logo-->
                             <div class="card-header pt-4 pb-4 text-center bg-primary">
                                 <a href="{{url('/')}}">
-                                    <span><img src="assets/images/logo.png" alt="" height="55"></span>
+                                    <span><img src="{{asset('assets/images/logo.png')}}" alt="" height="55"></span>
                                 </a>
                             </div>
 
@@ -122,8 +122,8 @@
 
 
         <!-- bundle -->
-        <script src="assets/js/vendor.min.js"></script>
-        <script src="assets/js/app.min.js"></script>
+        <script src="{{asset('assets/js/vendor.min.js')}}"></script>
+        <script src="{{asset('assets/js/app.min.js')}}"></script>
 
     </body>
 </html>

@@ -25,7 +25,7 @@
 
                 <!-- logo -->
                 <a href="{{ url('landing') }}" class="navbar-brand me-lg-5">
-                    <img src="assets/images/logo.png" alt="" class="logo-dark" height="55">
+                    <img src="{{ asset('assets/images/logo.png') }}" alt="" class="logo-dark" height="55">
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -78,7 +78,7 @@
                     </div>
                     <div class="col-md-5 offset-md-2">
                         <div class="text-md-end mt-3 mt-md-0">
-                            <img src="assets/images/startup.svg" alt="" class="img-fluid">
+                            <img src="{{asset('assets/images/startup.svg')}}" alt="" class="img-fluid">
                         </div>
                     </div>
                 </div>
@@ -101,7 +101,7 @@
                 </div>
                 <div class="row mt-2 py-5 align-items-center">
                     <div class="col-lg-5">
-                        <img src="assets/images/5556.png" class="img-fluid" alt="">
+                        <img src="{{asset('assets/images/5556.png')}}" class="img-fluid" alt="">
                     </div>
                     <div class="col-lg-6 offset-lg-1">
                         <h3 class="fw-normal">Online Booking</h3>
@@ -132,7 +132,7 @@
 
                     </div>
                     <div class="col-lg-5 offset-lg-1">
-                        <img src="assets/images/3331057.png" class="img-fluid" alt="">
+                        <img src="{{asset('assets/images/3331057.png')}}" class="img-fluid" alt="">
                     </div>
                 </div>
 
@@ -145,7 +145,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
-                        <img src="assets/images/logo.png" alt="" class="logo-dark" height="55">
+                        <img src="{{asset('assets/images/logo.png')}}" alt="" class="logo-dark" height="55">
                         <p class="text-muted mt-4">everywhere, every time, make it easier.</p>
 
                         <ul class="social-list list-inline mt-3">
@@ -171,8 +171,8 @@
         <!-- END FOOTER -->
 
         <!-- bundle -->
-        <script src="assets/js/vendor.min.js"></script>
-        <script src="assets/js/app.min.js"></script>
+        <script src="{{asset('assets/js/vendor.min.js')}}"></script>
+        <script src="{{asset('assets/js/app.min.js')}}"></script>
 
     </body>
 

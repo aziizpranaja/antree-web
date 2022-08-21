@@ -40,4 +40,5 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function(){
     Route::get('/ticket/get', [TicketController::class, 'getTicket']);
     Route::get('/profile', [ProfileController::class, 'index']);
     Route::get('/nowserve', [NowserveController::class, 'index']);
+    Route::put('/edit-max/{id}', [ProfileController::class, 'edit']);
 });

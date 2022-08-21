@@ -11,6 +11,7 @@
         "laravel/framework": "^8.54",
         "laravel/passport": "^10.4",
         "laravel/tinker": "^2.5",
+        "simplesoftwareio/simple-qrcode": "^4.2",
         "yajra/laravel-datatables-oracle": "^9.19"
     },
     "require-dev": {

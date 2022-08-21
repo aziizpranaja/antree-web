@@ -15,7 +15,7 @@ class DashboardController extends Controller
         $user = Auth::user()->id;
         $date = Carbon::today();
         $mercant = Mercant::where('user_id', '=', $user)
-                        ->first(['mercant_name', 'mercant_code']);
+                            ->first(['mercant_name', 'mercant_code', 'max_ticket']);
 
         $ticket = Ticket::join('mercants', 'tickets.mercant_id', '=', 'mercants.id')
         ->where('mercants.user_id', '=', $user)

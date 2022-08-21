@@ -30,10 +30,10 @@
                 <!-- LOGO -->
                 <a href="{{ url('dashboard') }}" class="logo text-center logo-light">
                     <span class="logo-lg">
-                        <img src="assets/images/logo.png" alt="" height="55">
+                    <img src="{{asset('assets/images/logo.png')}}" alt="" height="55">
                     </span>
                     <span class="logo-sm">
-                        <img src="assets/images/favicon.png" alt="" height="55">
+                        <img src="{{asset('assets/images/favicon.png')}}" alt="" height="55">
                     </span>
                 </a>
 
@@ -95,7 +95,7 @@
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                     <span class="account-user-avatar">
-                                        <img src="assets/images/users/profile.png" alt="user-image" class="rounded-circle">
+                                        <img src="{{asset('assets/images/users/profile.png')}}" alt="user-image" class="rounded-circle">
                                     </span>
                                     <span>
                                         <span class="account-user-name">{{ Auth::user()->name }}</span>
@@ -156,12 +156,21 @@
                                     </div> <!-- end card-body-->
                                 </div>
                                 <!--end card-->
+                                <div class="card tilebox-one text-center">
+                                    <div class="card-body">
+                                        {{-- <img src="data:image/png;base64, {{ base64_encode(QrCode::format('png')->generate($mercant->mercant_code)) }}"/> --}}
+                                        {{-- {{QrCode::format('png')->generate($mercant->mercant_code)}} --}}
+                                        {{QrCode::generate($mercant->mercant_code)}}
+                                        <h4 class="mb-0 mt-2">Scan Me!</h4>
+                                    </div> <!-- end card-body-->
+                                </div>
+                                <!--end card-->
                             </div> <!-- end col -->
 
                             <div class="col-xl-9 col-lg-8">
                                 <div class="card text-center">
                                     <div class="card-body">
-                                        <img src="assets/images/users/profile.png" class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">
+                                        <img src="{{asset('assets/images/users/profile.png')}}" class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">
 
                                         <h4 class="mb-0 mt-2">{{ $mercant->mercant_name }}</h4>
                                         <p class="text-muted font-14">{{ $mercant->mercant_code }}</p>
@@ -170,7 +179,7 @@
                                             <div class="col-sm-12">
                                                 <div class="card card-body">
                                                     <h5 class="card-title">Total Ticket</h5>
-                                                    <h1 id="total_ticket">{{ $allTicket }}</h1>
+                                                    <h1 id="total_ticket">{{ $allTicket }}/{{$mercant->max_ticket}}</h1>
                                                 </div> <!-- end card-->
                                             </div> <!-- end col-->
                                         </div>
@@ -248,18 +257,18 @@
         <!-- END wrapper -->
 
         <!-- bundle -->
-        <script src="assets/js/vendor.min.js"></script>
-        <script src="assets/js/app.min.js"></script>
+        <script src="{{asset('assets/js/vendor.min.js')}}"></script>
+        <script src="{{asset('assets/js/app.min.js')}}"></script>
 
         <!-- third party js -->
         <!-- <script src="assets/js/vendor/Chart.bundle.min.js"></script> -->
-        <script src="assets/js/vendor/apexcharts.min.js"></script>
-        <script src="assets/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
-        <script src="assets/js/vendor/jquery-jvectormap-world-mill-en.js"></script>
+        <script src="{{asset('assets/js/vendor/apexcharts.min.js')}}"></script>
+        <script src="{{asset('assets/js/vendor/jquery-jvectormap-1.2.2.min.js')}}"></script>
+        <script src="{{asset('assets/js/vendor/jquery-jvectormap-world-mill-en.js')}}"></script>
         <!-- third party js ends -->
 
         <!-- demo app -->
-        <script src="assets/js/pages/demo.dashboard-analytics.js"></script>
+        <script src="{{asset('assets/js/pages/demo.dashboard-analytics.js')}}"></script>
         <!-- end demo js-->
 
         <script>

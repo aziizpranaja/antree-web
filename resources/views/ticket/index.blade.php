@@ -25,10 +25,10 @@
                 <!-- LOGO -->
                 <a href="{{ url('dashboard') }}" class="logo text-center logo-light">
                     <span class="logo-lg">
-                        <img src="assets/images/logo.png" alt="" height="55">
+                        <img src="{{asset('assets/images/logo.png')}}" alt="" height="55">
                     </span>
                     <span class="logo-sm">
-                        <img src="assets/images/favicon.png" alt="" height="55">
+                        <img src="{{asset('assets/images/favicon.png')}}" alt="" height="55">
                     </span>
                 </a>
 
@@ -91,7 +91,7 @@
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                     <span class="account-user-avatar">
-                                        <img src="assets/images/users/profile.png" alt="user-image" class="rounded-circle">
+                                        <img src="{{asset('assets/images/users/profile.png')}}" alt="user-image" class="rounded-circle">
                                     </span>
                                     <span>
                                         <span class="account-user-name">{{ Auth::user()->name }}</span>
@@ -215,33 +215,33 @@
 
 
         <!-- bundle -->
-        <script src="assets/js/vendor.min.js"></script>
-        <script src="assets/js/app.min.js"></script>
+        <script src="{{asset('assets/js/vendor.min.js')}}"></script>
+        <script src="{{asset('assets/js/app.min.js')}}"></script>
 
         <!-- Typehead -->
-        <script src="assets/js/vendor/handlebars.min.js"></script>
-        <script src="assets/js/vendor/typeahead.bundle.min.js"></script>
+        <script src="{{asset('assets/js/vendor/handlebars.min.js')}}"></script>
+        <script src="{{asset('assets/js/vendor/typeahead.bundle.min.js')}}"></script>
 
         <!-- Demo -->
-        <script src="assets/js/pages/demo.typehead.js"></script>
+        <script src="{{asset('assets/js/pages/demo.typehead.js')}}"></script>
 
         <!-- Timepicker -->
-        <script src="assets/js/pages/demo.timepicker.js"></script>
+        <script src="{{asset('assets/js/pages/demo.timepicker.js')}}"></script>
 
         <!-- third party js -->
-        <script src="assets/js/vendor/jquery.dataTables.min.js"></script>
-        <script src="assets/js/vendor/dataTables.bootstrap5.js"></script>
-        <script src="assets/js/vendor/dataTables.responsive.min.js"></script>
-        <script src="assets/js/vendor/responsive.bootstrap5.min.js"></script>
-        <script src="assets/js/vendor/dataTables.buttons.min.js"></script>
-        <script src="assets/js/vendor/buttons.bootstrap5.min.js"></script>
-        <script src="assets/js/vendor/buttons.html5.min.js"></script>
-        <script src="assets/js/vendor/buttons.flash.min.js"></script>
-        <script src="assets/js/vendor/buttons.print.min.js"></script>
-        <script src="assets/js/vendor/dataTables.keyTable.min.js"></script>
-        <script src="assets/js/vendor/dataTables.select.min.js"></script>
-        <script src="assets/js/vendor/flatpickr.min.js"></script>
-        <script src="assets/js/vendor/select2.full.min.js"></script>
+        <script src="{{asset('assets/js/vendor/jquery.dataTables.min.js')}}"></script>
+        <script src="{{asset('assets/js/vendor/dataTables.bootstrap5.js')}}"></script>
+        <script src="{{asset('assets/js/vendor/dataTables.responsive.min.js')}}"></script>
+        <script src="{{asset('assets/js/vendor/responsive.bootstrap5.min.js')}}"></script>
+        <script src="{{asset('assets/js/vendor/dataTables.buttons.min.js')}}"></script>
+        <script src="{{asset('assets/js/vendor/buttons.bootstrap5.min.js')}}"></script>
+        <script src="{{asset('assets/js/vendor/buttons.html5.min.js')}}"></script>
+        <script src="{{asset('assets/js/vendor/buttons.flash.min.js')}}"></script>
+        <script src="{{asset('assets/js/vendor/buttons.print.min.js')}}"></script>
+        <script src="{{asset('assets/js/vendor/dataTables.keyTable.min.js')}}"></script>
+        <script src="{{asset('assets/js/vendor/dataTables.select.min.js')}}"></script>
+        <script src="{{asset('assets/js/vendor/flatpickr.min.js')}}"></script>
+        <script src="{{asset('assets/js/vendor/select2.full.min.js')}}"></script>
         <!-- third party js ends -->
 
         <script>
