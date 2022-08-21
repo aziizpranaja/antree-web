@@ -26,6 +26,9 @@ class AddqueueController extends Controller
                     ->orderBy('tickets.created_at', 'desc')
                     ->first();
 
+            $mercant = Mercant::where('id', '=', $arr)
+            ->first();
+
             if(is_null($ticket)){
                 $create = [
                     "user_id" => $request->input('user_id'),
@@ -39,6 +42,11 @@ class AddqueueController extends Controller
             }
 
             $number = $ticket->queue_number + 1;
+
+            if($number > $mercant->max_ticket)
+            {
+                return ResponseFormatter::error("Out of Quota!");
+            }
 
             $create = [
                 "user_id" => $request->input('user_id'),
@@ -116,7 +124,6 @@ class AddqueueController extends Controller
             $queue = Ticket::join('mercants', 'tickets.mercant_id', '=', 'mercants.id')
                             ->where('tickets.id', '=', $id)
                             ->where('tickets.user_id', '=', $user)
-                            ->where('tickets.date', '=', $date)
                             ->first([
                                 'mercant_name',
                                 'queue_number',
@@ -129,6 +136,7 @@ class AddqueueController extends Controller
 
             $ongoing = Ticket::join('mercants', 'tickets.mercant_id', '=', 'mercants.id')
             ->where('tickets.mercant_id', '=', $queue->mercant_id)
+            ->where('tickets.date', '=', $date)
             ->where('status', '=', 'ongoing')
             ->first([
                 'queue_number',
@@ -138,7 +146,7 @@ class AddqueueController extends Controller
                 $response = [
                     'nama_mercant' => $queue->mercant_name,
                     'queue_number' => $queue->queue_number,
-                    'now_serve' => $ongoing,
+                    'now_serve' => 0,
                 ];
 
                 return ResponseFormatter::success($response, 'Get Ticket');
@@ -147,7 +155,7 @@ class AddqueueController extends Controller
             $response = [
                 'nama_mercant' => $queue->mercant_name,
                 'queue_number' => $queue->queue_number,
-                'now_serve' => $ongoing,
+                'now_serve' => $ongoing->queue_number,
             ];
 
             return ResponseFormatter::success($response, 'Get Ticket');

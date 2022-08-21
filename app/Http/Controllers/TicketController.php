@@ -18,7 +18,8 @@ class TicketController extends Controller
     {
         $user = Auth::user()->id;
         $ticket = Ticket::join('users', 'tickets.user_id', '=', 'users.id')
-                        ->where('mercant_id', '=', $user)
+                        ->join('mercants', 'tickets.mercant_id', '=', 'mercants.id')
+                        ->where('mercants.user_id', '=', $user)
                         ->where('status', '!=', 'pending')
                         ->where('status', '!=', 'ongoing')
                         ->orderBy('tickets.created_at', 'desc');

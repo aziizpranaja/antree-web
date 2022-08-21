@@ -47,14 +47,14 @@
                         <li class="side-nav-item">
                             <a href="{{ url('dashboard') }}" class="side-nav-link">
                                 <i class="uil-home-alt"></i>
-                                <span class=" active"> Dashboards </span>
+                                <span> Dashboard </span>
                             </a>
                         </li>
 
                         <li class="side-nav-item">
                             <a href="{{ url('profile') }}" class="side-nav-link">
                                 <i class="uil-user"></i>
-                                <span> Profile </span>
+                                <span> History </span>
                             </a>
                         </li>
 
@@ -68,7 +68,7 @@
                         <li class="side-nav-item">
                             <a href="{{ url('ticket') }}" class="side-nav-link">
                                 <i class="uil-ticket"></i>
-                                <span> History </span>
+                                <span> Ticket </span>
                             </a>
                         </li>
                     </ul>
@@ -130,8 +130,7 @@
                             <div class="col-12">
                                 <div class="page-title-box">
                                     <div class="page-title-right">
-                                        <form class="d-flex">
-                                        </form>
+                                        <button class="btn btn-primary" value="Refresh" onClick="refresh(this)">Refresh</button>
                                     </div>
                                     <h4 class="page-title">{{ $mercant->mercant_name }}</h4>
                                 </div>
@@ -140,100 +139,20 @@
                         <!-- end page title -->
 
                         <div class="row">
-                            <div class="col-xxl-6 col-lg-6">
-                                <div class="card widget-flat bg-primary text-white">
+                            <div class="col-md-12">
+                                <div class="card border-primary border text-center">
                                     <div class="card-body">
-                                        <div class="float-end">
-                                            <i class="mdi mdi-account-multiple widget-icon bg-white text-primary"></i>
-                                        </div>
-                                        <h6 class="text-uppercase mt-0" title="Customers">Approach</h6>
-                                        <h3 class="mt-3 mb-3">{{ $allPending }}</h3>
-                                    </div>
-                                </div>
-                            </div> <!-- end col-->
-
-                            <div class="col-xxl-6 col-lg-6">
-                                <div class="card widget-flat bg-success text-white">
-                                    <div class="card-body">
-                                        <div class="float-end">
-                                            <i class="mdi mdi-account-multiple widget-icon bg-white text-success"></i>
-                                        </div>
-                                        <h6 class="text-uppercase mt-0" title="Customers">Done</h6>
-                                        <h3 class="mt-3 mb-3">{{ $allDone }}</h3>
-                                    </div>
-                                </div>
+                                        <h3 class="card-title text-primary">Now Serve</h3>
+                                        @if($ongoing == null)
+                                            <h4 id="now_serve" class="card-text">0</h4>
+                                        @else
+                                            <h4 id="now_serve" class="card-text">{{ $ongoing->queue_number }}</h4>
+                                        @endif
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
                             </div> <!-- end col-->
                         </div>
-
-                            <div class="col-xl-12 col-lg-8">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="card text-center">
-                                            <div class="card-header">
-                                                Now Serve
-                                            </div>
-                                            <div class="card-body">
-                                                <blockquote class="card-bodyquote">
-                                                    @if($ongoing == null)
-                                                        <h1>0</h1>
-                                                    @else
-                                                        <h1>{{ $ongoing->queue_number }}</h1>
-                                                    @endif
-                                                </blockquote>
-                                            </div> <!-- end card-body-->
-                                        </div> <!-- end card-->
-                                    </div> <!-- end col-->
-                                </div>
-                                <!-- end row -->
-                                <div class="card text-center">
-                                    <div class="row">
-                                        <div class="card-body">
-                                            @if($queue == null)
-                                                <button disabled class="btn btn-primary mb-2"  type="submit">
-                                                    Call Queue
-                                                </button>
-                                            @else
-                                                <form action="{{ url('queue/'.$queue->id) }}" method="POST">
-                                                    {{csrf_field()}}
-                                                    @method('PUT')
-                                                    @if($ongoing == null)
-                                                        <button class="btn btn-primary"  type="submit">
-                                                            Call Queue
-                                                        </button>
-
-                                                    @else
-                                                        <button disabled class="btn btn-primary"  type="submit">
-                                                            Call Queue
-                                                        </button>
-                                                    @endif
-                                                </form><br>
-                                            @endif
-                                        </div> <!-- end card-body -->
-                                        <div class="card-body">
-                                            @if($ongoing == null)
-                                                <button disabled class="btn btn-success mb-2"  type="submit">
-                                                    Done Queue
-                                                </button>
-                                            @else
-                                                <form action="{{ url('queue/done/'.$ongoing->id) }}" method="POST">
-                                                    {{csrf_field()}}
-                                                    @method('PUT')
-                                                    @if($ongoing == null)
-                                                        <button disabled class="btn btn-success"  type="submit">
-                                                            Done Queue
-                                                        </button>
-                                                    @else
-                                                        <button class="btn btn-success"  type="submit">
-                                                            Done Queue
-                                                        </button>
-                                                    @endif
-                                                </form><br>
-                                            @endif
-                                        </div> <!-- end card-body -->
-                                    </div>
-                                </div> <!-- end card -->
-                            </div>
-
+                        <!-- end row -->
                     </div>
                     <!-- container -->
 
@@ -274,6 +193,14 @@
         <!-- demo app -->
         <script src="assets/js/pages/demo.dashboard-analytics.js"></script>
         <!-- end demo js-->
+
+        <script>
+            function refresh(){
+                $("#now_serve").load(window.location
+                    .href +
+                    " #now_serve");
+                }
+        </script>
     </body>
 
 </html>

@@ -6,6 +6,7 @@ use App\Http\Controllers\API\auth\AuthController;
 use App\Http\Controllers\API\ProfileController;
 use App\Http\Controllers\API\QrcodeController;
 use App\Http\Controllers\API\AddqueueController;
+use App\Http\Controllers\API\MercantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,4 +36,5 @@ Route::middleware('auth:api')->group( function () {
     Route::get('/queue/get/{id}', [AddqueueController::class, 'getQueueDetail']);
     Route::post('/queue/edit/{id}', [AddqueueController::class, 'cancelQueue']);
     Route::get('/queue/history', [AddqueueController::class, 'getQueueHistory']);
+    Route::get('/mercant', [MercantController::class, 'getMercant']);
 });

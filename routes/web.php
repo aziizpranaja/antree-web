@@ -6,6 +6,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\CallQueueController;
 use App\Http\Controllers\TicketController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\NowserveController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +24,7 @@ use App\Http\Controllers\TicketController;
 Route::get('/', [LandingController::class, 'index']);
 
 //Login dan Register
-Route::get('/loginpage', [LoginController::class, 'index']);
+Route::get('/loginpage', [LoginController::class, 'index'])->name('loginpage');
 Route::get('/registerpage', [LoginController::class, 'registerpage']);
 Route::post('/regiter', [LoginController::class, 'register'])->name('register');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
@@ -36,4 +38,6 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function(){
     Route::put('/queue/done/{id}', [CallQueueController::class, 'doneQueue']);
     Route::get('/ticket', [TicketController::class, 'index']);
     Route::get('/ticket/get', [TicketController::class, 'getTicket']);
+    Route::get('/profile', [ProfileController::class, 'index']);
+    Route::get('/nowserve', [NowserveController::class, 'index']);
 });

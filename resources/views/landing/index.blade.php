@@ -8,7 +8,7 @@
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description">
         <meta content="Coderthemes" name="author">
         <!-- App favicon -->
-        {{-- <link rel="shortcut icon" href="assets/images/favicon.ico"> --}}
+        <link rel="shortcut icon" href="assets/images/favicon.png">
 
         <!-- App css -->
         <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css">
@@ -24,8 +24,8 @@
             <div class="container">
 
                 <!-- logo -->
-                <a href="index.html" class="navbar-brand me-lg-5">
-                    <h1>Antree</h1>
+                <a href="{{ url('landing') }}" class="navbar-brand me-lg-5">
+                    <img src="assets/images/logo.png" alt="" class="logo-dark" height="55">
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,7 +73,7 @@
                             <p class="mb-4 font-16 text-white-50">
                                 everywhere, every time, make it easier</p>
 
-                            <a href="{{ url('loginpage') }}" target="_blank" class="btn btn-success">Login Mercant <i class="mdi mdi-arrow-right ms-1"></i></a>
+                            <a href="{{ url('loginpage') }}" class="btn btn-success">Login Mercant <i class="mdi mdi-arrow-right ms-1"></i></a>
                         </div>
                     </div>
                     <div class="col-md-5 offset-md-2">
@@ -145,7 +145,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
-                        <h1 style="color: white">Antree</h1>
+                        <img src="assets/images/logo.png" alt="" class="logo-dark" height="55">
                         <p class="text-muted mt-4">everywhere, every time, make it easier.</p>
 
                         <ul class="social-list list-inline mt-3">
@@ -164,40 +164,6 @@
                         </ul>
 
                     </div>
-
-                    {{-- <div class="col-lg-2 mt-3 mt-lg-0">
-                        <h5 class="text-light">Company</h5>
-
-                        <ul class="list-unstyled ps-0 mb-0 mt-3">
-                            <li class="mt-2"><a href="javascript: void(0);" class="text-muted">About Us</a></li>
-                            <li class="mt-2"><a href="javascript: void(0);" class="text-muted">Documentation</a></li>
-                            <li class="mt-2"><a href="javascript: void(0);" class="text-muted">Blog</a></li>
-                            <li class="mt-2"><a href="javascript: void(0);" class="text-muted">Affiliate Program</a></li>
-                        </ul>
-
-                    </div>
-
-                    <div class="col-lg-2 mt-3 mt-lg-0">
-                        <h5 class="text-light">Apps</h5>
-
-                        <ul class="list-unstyled ps-0 mb-0 mt-3">
-                            <li class="mt-2"><a href="javascript: void(0);" class="text-muted">Ecommerce Pages</a></li>
-                            <li class="mt-2"><a href="javascript: void(0);" class="text-muted">Email</a></li>
-                            <li class="mt-2"><a href="javascript: void(0);" class="text-muted">Social Feed</a></li>
-                            <li class="mt-2"><a href="javascript: void(0);" class="text-muted">Projects</a></li>
-                            <li class="mt-2"><a href="javascript: void(0);" class="text-muted">Tasks Management</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-2 mt-3 mt-lg-0">
-                        <h5 class="text-light">Discover</h5>
-
-                        <ul class="list-unstyled ps-0 mb-0 mt-3">
-                            <li class="mt-2"><a href="javascript: void(0);" class="text-muted">Help Center</a></li>
-                            <li class="mt-2"><a href="javascript: void(0);" class="text-muted">Our Products</a></li>
-                            <li class="mt-2"><a href="javascript: void(0);" class="text-muted">Privacy</a></li>
-                        </ul>
-                    </div> --}}
                 </div>
 
             </div>

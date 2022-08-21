@@ -22,6 +22,7 @@ class CreateMercantsTable extends Migration
             $table->string('mercant_email');
             $table->string('phone', 13);
             $table->string('image')->nullable();
+            $table->integer('max_ticket')->default(10);
             $table->timestamps();
         });
     }

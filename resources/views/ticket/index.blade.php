@@ -7,7 +7,7 @@
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description">
         <meta content="Coderthemes" name="author">
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="shortcut icon" href="assets/images/favicon.png">
 
         <!-- App css -->
         <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css">
@@ -25,20 +25,10 @@
                 <!-- LOGO -->
                 <a href="{{ url('dashboard') }}" class="logo text-center logo-light">
                     <span class="logo-lg">
-                        <h1>Antree</h1>
+                        <img src="assets/images/logo.png" alt="" height="55">
                     </span>
                     <span class="logo-sm">
-                        <h1>A</h1>
-                    </span>
-                </a>
-
-                <!-- LOGO -->
-                <a href="index.html" class="logo text-center logo-dark">
-                    <span class="logo-lg">
-                        <img src="assets/images/logo-dark.png" alt="" height="16">
-                    </span>
-                    <span class="logo-sm">
-                        <img src="assets/images/logo_sm_dark.png" alt="" height="16">
+                        <img src="assets/images/favicon.png" alt="" height="55">
                     </span>
                 </a>
 
@@ -57,9 +47,23 @@
                         </li>
 
                         <li class="side-nav-item">
+                            <a href="{{ url('profile') }}" class="side-nav-link">
+                                <i class="uil-user"></i>
+                                <span> Profile </span>
+                            </a>
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a href="{{ url('nowserve') }}" class="side-nav-link">
+                                <i class="uil-play"></i>
+                                <span> Now Serve </span>
+                            </a>
+                        </li>
+
+                        <li class="side-nav-item">
                             <a href="{{ url('ticket') }}" class="side-nav-link">
                                 <i class="uil-ticket"></i>
-                                <span> Ticket </span>
+                                <span> History </span>
                             </a>
                         </li>
                     </ul>
@@ -139,7 +143,7 @@
                                                     <div class="col-lg-6">
                                                         <p class="mb-1 fw-bold text-muted">Select Status</p>
                                                         <select class="form-control select2" data-toggle="select2" id="status" name="status" onchange="selectFunction()">
-                                                            <option>Select</option>
+                                                            <option value="">Select</option>
                                                             <option value="done">Done</option>
                                                             <option value="cancel">Cancel</option>
                                                         </select>
