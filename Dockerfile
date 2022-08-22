@@ -1,5 +1,5 @@
 # Install Images
-FROM bitnami/laravel:9.3.4-debian-11-r1
+FROM bitnami/laravel:8.6.11
 
 # Set working directory
 WORKDIR /home/app
