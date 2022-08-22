@@ -156,9 +156,9 @@
                                 <!--end card-->
                                 <div class="card tilebox-one text-center">
                                     <div class="card-body">
-                                        {{-- <img src="data:image/png;base64, {{ base64_encode(QrCode::format('png')->generate($mercant->mercant_code)) }}"/> --}}
+                                        <img src="data:image/png;base64, {{ base64_encode(QrCode::format('png')->generate($mercant->mercant_code)) }}"/>
                                         {{-- {{QrCode::format('png')->generate($mercant->mercant_code)}} --}}
-                                        {{QrCode::generate($mercant->mercant_code)}}
+                                        {{-- {{QrCode::generate($mercant->mercant_code)}} --}}
                                         <h4 class="mb-0 mt-2">Scan Me!</h4>
                                     </div> <!-- end card-body-->
                                 </div>
