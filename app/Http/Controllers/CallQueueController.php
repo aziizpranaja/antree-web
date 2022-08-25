@@ -13,17 +13,20 @@ class CallQueueController extends Controller
     public function index()
     {
         $user = Auth::user()->id;
+        $date = Carbon::today();
         $mercant = Mercant::where('user_id', '=', $user)
                         ->first(['mercant_name', 'mercant_code']);
 
         $pending = Ticket::join('mercants', 'tickets.mercant_id', '=', 'mercants.id')
         ->where('mercants.user_id', '=', $user)
         ->where('status', '=', 'pending')
+        ->where('tickets.date', '=', $date)
         ->get();
 
         $queue = Ticket::join('mercants', 'tickets.mercant_id', '=', 'mercants.id')
         ->where('mercants.user_id', '=', $user)
         ->where('status', '=', 'pending')
+        ->where('tickets.date', '=', $date)
         ->orderBy('tickets.created_at', 'asc')
         ->first(['tickets.id', 'status']);
 
@@ -36,6 +39,7 @@ class CallQueueController extends Controller
         $done = Ticket::join('mercants', 'tickets.mercant_id', '=', 'mercants.id')
         ->where('mercants.user_id', '=', $user)
         ->where('status', '=', 'done')
+        ->where('tickets.date', '=', $date)
         ->get();
 
         $allPending = count($pending);
